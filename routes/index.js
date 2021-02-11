@@ -8,18 +8,29 @@ router.get("/", function (req, res, next) {
 
 router.get("/api", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Content-Type", "*");
-  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET,POST,HEAD,OPTIONS");
+  res.header("Access-Control-Max-Age", 864000);
   res.send({ name: "太郎" });
   console.log("get");
 });
 
 router.post("/api", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Content-Type", "*");
-  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET,POST,HEAD,OPTIONS");
+  res.header("Access-Control-Max-Age", 864000);
   res.send({ name: "太郎" });
   console.log("get");
+});
+
+router.options("/api", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET,POST,HEAD,OPTIONS");
+  res.header("Access-Control-Max-Age", 864000);
+  res.send({ name: "太郎" });
+  console.log("options");
 });
 
 router.post("*", function (req, res, next) {
